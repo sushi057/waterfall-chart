@@ -28,7 +28,7 @@ const data: DataProps[] = [
 
 function Summary() {
   return (
-    <main className="flex-1 bg-gray-200 px-4 pt-4 font-semibold">
+    <main className="min-w-72 bg-gray-200 px-4 pt-4 font-semibold">
       <section>
         <h1 className="text-xl font-bold">Net Change</h1>
         <ul className="mt-4 flex flex-col font-bold">
@@ -58,7 +58,7 @@ function Summary() {
             <p className="inline-block">Discrepancies</p>
           </li>
           <li className="mt-1 bg-white p-2 text-blue-400">
-            <p className="inline-block">Net Chnage</p>
+            <p className="inline-block">Net Change</p>
           </li>
         </ul>
       </section>
