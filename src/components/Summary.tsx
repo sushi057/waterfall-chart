@@ -28,7 +28,7 @@ const data: DataProps[] = [
 
 function Summary() {
   return (
-    <main className="min-w-80 bg-gray-200 px-4 pt-4 font-semibold">
+    <main className="min-w-80 bg-gray-200 px-4 pt-14 font-semibold">
       <section>
         <h1 className="text-xl font-bold">Net Change</h1>
         <ul className="mt-4 flex flex-col font-bold">

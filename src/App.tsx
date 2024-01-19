@@ -6,7 +6,7 @@ import Bargraph from "./pages/Bargraph";
 function App() {
   return (
     <Router>
-      <div className="relative flex flex-row gap-8 bg-gray-950 p-2 text-white">
+      <div className="relative flex w-full flex-row gap-8 bg-gray-950 p-2 text-white">
         <Link
           to="/"
           className="rounded-md border-2 border-white px-2 py-1 text-center"

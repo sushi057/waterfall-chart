@@ -9,12 +9,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function BargraphSummary() {
   return (
-    <main className="relative min-w-80 bg-gray-200 px-4 pt-4 font-semibold">
+    <main className="relative min-w-80 bg-gray-200 px-4 pt-1 font-semibold">
       <section className="font-bold">
-        <h1 className="text-xl ">Summary</h1>
-        <p className="mt-4 text-lg">Apr 2018 - Mar 2019</p>
+        <h1 className="text-lg">Summary</h1>
+        <p className="mt-2 text-base">Apr 2018 - Mar 2019</p>
       </section>
-      <ul className="-mx-2 mt-6 bg-white px-8 py-2 font-bold text-gray-500">
+      <ul className="-mx-2 mt-4 bg-white px-8 py-2 text-sm font-semibold text-gray-500">
         <li className="my-1.5 flex justify-between text-blue-500">
           <p>Overall</p>
           <p>14.0 %</p>
@@ -50,7 +50,7 @@ function BargraphSummary() {
           <p>-0.16 pp</p>
         </li>
       </ul>
-      <button className="hover: mt-6 w-full border-2 border-gray-400 py-2 text-center text-lg font-bold hover:bg-gray-400">
+      <button className="mt-4 w-full border-2 border-gray-400 py-2 text-center text-base font-bold hover:bg-gray-400">
         View Details
       </button>
       <section>
@@ -66,7 +66,7 @@ function BargraphSummary() {
           </a>
         </p>
       </section>
-      <ul className="absolute -left-6 top-56">
+      <ul className="absolute -left-6 top-1/4">
         <li className="mt-4 grid cursor-pointer place-content-center rounded-full bg-blue-500 p-4 hover:bg-blue-600">
           <FontAwesomeIcon icon={faInfo} className="size-4 invert" />
         </li>

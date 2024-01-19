@@ -18,12 +18,14 @@ function Charts() {
         right: "5%",
         width: "35%",
         top: "2%",
+        bottom: "20%"
       },
       {
         top: "2%",
         left: "55%",
         rigth: "-20%",
         width: "40%",
+        bottom: "20%"
       },
     ],
     xAxis: [

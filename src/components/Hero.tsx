@@ -101,7 +101,7 @@ const WaterfallOption = {
         fontWeight: "bold",
       },
       itemStyle: {
-        color: "#9bebb4",
+        color: "rgba(0, 255, 0, 0.5)", // Transparent green color
       },
       data: [379, 326, "-", "-", "-", "-"],
     },
@@ -117,7 +117,7 @@ const WaterfallOption = {
         fontWeight: "bold",
       },
       itemStyle: {
-        color: "#fdacaa",
+        color: "rgba(255, 0, 0, 0.5)", // Transparent red color
       },
       data: ["-", "-", 118, 232, "-", "-"],
     },
@@ -149,7 +149,7 @@ const WaterfallOption = {
         fontWeight: "bold",
       },
       itemStyle: {
-        color: "#bedcfe",
+        color: "rgba(0, 90, 255, 0.5)", // Transparent blue color
       },
       data: ["-", "-", "-", "-", "", 362],
     },
