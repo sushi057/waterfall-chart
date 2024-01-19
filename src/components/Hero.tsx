@@ -8,10 +8,10 @@ const WaterfallOption = {
     axisPointer: {
       type: "shadow",
     },
-    formatter: function (params: any) {
-      const tar = params[1];
-      return tar.name + "<br />" + tar.seriesName + " : " + tar.value;
-    },
+    // formatter: function (params: any) {
+    //   const tar = params[1];
+    //   return tar.name + "<br />" + tar.seriesName + " : " + tar.value;
+    // },
   },
   grid: {
     left: "7%",
