@@ -6,9 +6,19 @@ import Bargraph from "./pages/Bargraph";
 function App() {
   return (
     <Router>
-      <div>
-        <Link to="/">Home</Link>
-        <Link to="/bargraph">Bargraph</Link>
+      <div className="relative flex flex-row gap-8 bg-gray-950 p-2 text-white">
+        <Link
+          to="/"
+          className="rounded-md border-2 border-white px-2 py-1 text-center"
+        >
+          Home
+        </Link>
+        <Link
+          to="/bargraph"
+          className="rounded-md border-2 border-white px-2 py-1 text-center"
+        >
+          Bargraph
+        </Link>
       </div>
 
       <Routes>

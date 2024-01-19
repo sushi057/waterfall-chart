@@ -9,12 +9,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function BargraphSummary() {
   return (
-    <main className="relative h-screen w-1/4 bg-gray-200/60 px-6">
+    <main className="relative min-w-80 bg-gray-200 px-4 pt-4 font-semibold">
       <section className="font-bold">
         <h1 className="text-xl ">Summary</h1>
         <p className="mt-4 text-lg">Apr 2018 - Mar 2019</p>
       </section>
-      <ul className="-mx-4 mt-6 bg-white px-8 py-2 font-bold text-gray-500">
+      <ul className="-mx-2 mt-6 bg-white px-8 py-2 font-bold text-gray-500">
         <li className="my-1.5 flex justify-between text-blue-500">
           <p>Overall</p>
           <p>14.0 %</p>

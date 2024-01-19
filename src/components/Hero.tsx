@@ -160,15 +160,15 @@ function Hero() {
   return (
     <main className="flex flex-1 flex-col p-6">
       <section>
-        <p className="w-fit cursor-pointer rounded-sm border-2 p-1.5">
+        <p className="w-fit cursor-pointer rounded-sm border-2 p-1.5 font-semibold">
           Employee Movement Breakdown
         </p>
         <div className="mt-3 flex flex-row gap-8">
-          <p className="flex cursor-pointer flex-row items-center gap-2 rounded-sm border-2 p-1.5">
+          <p className="flex cursor-pointer flex-row items-center gap-2 rounded-sm border-2 p-1.5 font-semibold">
             <FontAwesomeIcon icon={faCalendarDay} />
             2019
           </p>
-          <p className="flex cursor-pointer flex-row items-center gap-2 border-2 p-1.5">
+          <p className="flex cursor-pointer flex-row items-center gap-2 border-2 p-1.5 font-semibold">
             <FontAwesomeIcon icon={faPlus} />
             Add a filter
           </p>
