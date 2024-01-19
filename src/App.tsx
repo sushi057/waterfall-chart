@@ -1,12 +1,21 @@
-import Hero from "./components/Hero";
-import Summary from "./components/Summary";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+
+import Waterfall from "./pages/Waterfall";
+import Bargraph from "./pages/Bargraph";
 
 function App() {
   return (
-    <div className="h-screen flex flex-row justify-between">
-      <Hero />
-      <Summary />
-    </div>
+    <Router>
+      <div>
+        <Link to="/">Home</Link>
+        <Link to="/bargraph">Bargraph</Link>
+      </div>
+
+      <Routes>
+        <Route path="/bargraph" element={<Bargraph />} />
+        <Route path="/" element={<Waterfall />} />
+      </Routes>
+    </Router>
   );
 }
 
