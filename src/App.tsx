@@ -3,7 +3,7 @@ import Summary from "./components/Summary";
 
 function App() {
   return (
-    <div className="flex h-screen flex-row justify-between">
+    <div className="h-screen flex flex-row justify-between">
       <Hero />
       <Summary />
     </div>
