@@ -39,11 +39,61 @@ const WaterfallOption = {
       name: "Placeholder",
       type: "bar",
       stack: "total",
+      silent: "true",
       itemStyle: {
         borderColor: "transparent",
         color: "transparent",
       },
-      data: [0, 379, 580, 360, 360, 0],
+      data: [0, 379, 589, 357, 364, 0],
+      barCategoryGap: "10%",
+    },
+    {
+      name: "Scans",
+      type: "bar",
+      stack: "total",
+      label: {
+        show: true,
+        position: "top",
+        color: "#9bebb4",
+        formatter: "+{c}",
+        fontWeight: "bold",
+      },
+      itemStyle: {
+        color: "#9bebb4",
+      },
+      data: [379, 326, "-", "-", "-", "-"],
+    },
+    {
+      name: "Exits",
+      type: "bar",
+      stack: "total",
+      label: {
+        show: true,
+        position: "bottom",
+        color: "#fdacaa",
+        formatter: "-{c}",
+        fontWeight: "bold",
+      },
+      itemStyle: {
+        color: "#fdacaa",
+      },
+      data: ["-", "-", 118, 232, "-", "-"],
+    },
+    {
+      name: "Discrepancies",
+      type: "bar",
+      stack: "total",
+      label: {
+        show: true,
+        position: "top",
+        color: "#cfd2d8",
+        formatter: "+{c}",
+        fontWeight: "bold",
+      },
+      itemStyle: {
+        color: "#cfd2d8",
+      },
+      data: ["-", "-", "-", "-", 7, "-"],
     },
     {
       name: "Net Change",
@@ -51,9 +101,15 @@ const WaterfallOption = {
       stack: "total",
       label: {
         show: true,
-        position: "inside",
+        position: "top",
+        color: "#bedcfe",
+        formatter: "+{c}",
+        fontWeight: "bold",
       },
-      data: [379, 710, 705, 580, 367, 362],
+      itemStyle: {
+        color: "#bedcfe",
+      },
+      data: ["-", "-", "-", "-", "", 362],
     },
   ],
 };
