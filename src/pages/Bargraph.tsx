@@ -5,7 +5,7 @@ import Header from "../components/Header";
 function Bargraph() {
   return (
     <div className="flex flex-row justify-between">
-      <div className="flex h-screen flex-1 flex-col">
+      <div className="flex flex-1 flex-col">
         <Header />
         <Charts />
       </div>

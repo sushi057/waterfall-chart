@@ -158,9 +158,9 @@ const WaterfallOption = {
 
 function Hero() {
   return (
-    <main className="flex flex-1 flex-col p-6">
+    <main className="flex flex-1 flex-col p-6 pt-20">
       <section>
-        <p className="w-fit cursor-pointer rounded-sm border-2 p-1.5 font-semibold">
+        <p className="w-fit cursor-pointer rounded-sm border-2 p-1.5 text-base font-semibold">
           Employee Movement Breakdown
         </p>
         <div className="mt-3 flex flex-row gap-8">

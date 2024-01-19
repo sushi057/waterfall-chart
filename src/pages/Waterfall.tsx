@@ -3,7 +3,7 @@ import Summary from "../components/Summary";
 
 function Waterfall() {
   return (
-    <div className="flex h-screen flex-row justify-between">
+    <div className="flex -my-14 h-screen flex-row justify-between">
       <Hero />
       <Summary />
     </div>
