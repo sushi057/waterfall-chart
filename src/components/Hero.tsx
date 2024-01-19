@@ -14,8 +14,8 @@ const WaterfallOption = {
     },
   },
   grid: {
-    left: "3%",
-    right: "4%",
+    left: "7%",
+    right: "7%",
     bottom: "5%",
     containLabel: true,
   },
@@ -44,7 +44,49 @@ const WaterfallOption = {
         borderColor: "transparent",
         color: "transparent",
       },
-      data: [0, 379, 589, 357, 364, 0],
+      data: [
+        {
+          value: 0,
+          label: {
+            show: true,
+            position: "left",
+            formatter: [`{term|4.85K}`, `Starting`, `Headcount`].join("\n"),
+            color: "#808080",
+            align: "center",
+            padding: [0, 120, 2, 2],
+            rich: {
+              term: {
+                color: "#000",
+                fontSize: 14,
+                fontWeight: "bold",
+              },
+            },
+          },
+        },
+        379,
+        589,
+        357,
+        364,
+        {
+          value: 0,
+          label: {
+            show: true,
+            position: "right",
+            // align: "top",
+            // verticalAlign: "top",
+            padding: [5, 5, 380, 5],
+            formatter: ["{term|5.23K}", "Finding", "Headcount"].join("\n"),
+            color: "#808080",
+            rich: {
+              term: {
+                color: "#000",
+                fontSize: 14,
+                fontWeight: "bold",
+              },
+            },
+          },
+        },
+      ],
       barCategoryGap: "10%",
     },
     {
