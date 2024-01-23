@@ -8,7 +8,13 @@ function Charts() {
   const sales2019Key = keys.find((key) => key.includes("d__2019sale"));
   const sales2021Key = keys.find((key) => key.includes("d__2021sale"));
 
-  const subcategories: string[] = data.map((item) => item[subcategoryKey]);
+  if (!subcategoryKey || !sales2019Key || !sales2021Key) {
+    // Handle the case where one or more keys are not found
+    console.error("One or more keys not found.");
+    return null; // or handle it in a way that makes sense for your application
+  }
+
+  const subcategories = data.map((item) => item[subcategoryKey]);
   const sales2019: number[] = data.map((item) => item[sales2019Key].toFixed(0));
   const sales2021: number[] = data.map((item) => item[sales2021Key].toFixed(0));
 
