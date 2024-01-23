@@ -12,11 +12,15 @@ function Charts() {
   const sales2019: number[] = data.map((item) => item[sales2019Key].toFixed(0));
   const sales2021: number[] = data.map((item) => item[sales2021Key].toFixed(0));
 
-  console.log(sales2019);
-
   const labelRight = {
     position: "right",
   } as const;
+
+  const differenceData = sales2021.map((value2019, index) => {
+    const value2021 = sales2019[index];
+    const difference = value2019 - value2021;
+    return { value: difference, label: difference < 0 ? labelRight : null };
+  });
 
   const horizontalBarGraphOption = {
     tooltip: {
@@ -29,7 +33,7 @@ function Charts() {
       {
         left: "12%",
         right: "5%",
-        width: "50%",
+        width: "45%",
         top: "2%",
       },
       {
@@ -52,9 +56,6 @@ function Charts() {
       },
       {
         type: "value",
-        min: -20,
-        max: 20,
-        interval: 10,
         splitLine: {
           lineStyle: {
             type: "dashed",
@@ -64,11 +65,6 @@ function Charts() {
           show: true,
         },
         boundaryGap: ["10%", "5%"],
-        axisLabel: {
-          formatter: function (value: number) {
-            return value.toFixed(2) + " pp";
-          },
-        },
         gridIndex: 1,
       },
     ],
@@ -97,6 +93,8 @@ function Charts() {
         },
         label: {
           show: true,
+          fontSize: 10,
+          verticalAlign: "middle",
           position: "outside",
           formatter: "{c}",
           color: "#4e73df",
@@ -113,6 +111,8 @@ function Charts() {
         },
         label: {
           show: true,
+          fontSize: 10,
+          verticalAlign: "middle",
           position: "outside",
           formatter: "{c}",
           color: "#e74a3b",
@@ -129,19 +129,9 @@ function Charts() {
           show: true,
           position: "outside",
           color: "#50C878",
-          formatter: "{c} pp",
+          formatter: "{c}",
         },
-        data: [
-          { value: 0.78 },
-          { value: 11.0 },
-          { value: 1.08 },
-          { value: 0.34 },
-          { value: 3.2 },
-          { value: -7.9, label: labelRight },
-          { value: 2.04 },
-          { value: -2.87, label: labelRight },
-          { value: 0.1 },
-        ],
+        data: differenceData,
         itemStyle: {
           color: "#50C878",
         },
