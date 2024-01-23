@@ -1,6 +1,19 @@
 import ReactECharts from "echarts-for-react";
+import data from "../data/data.json";
 
 function Charts() {
+  const keys = Object.keys(data[0]);
+  // Extract subcategories and sales data from the JSON dynamically
+  const subcategoryKey = keys.find((key) => key.includes("subcategory"));
+  const sales2019Key = keys.find((key) => key.includes("d__2019sale"));
+  const sales2021Key = keys.find((key) => key.includes("d__2021sale"));
+
+  const subcategories: string[] = data.map((item) => item[subcategoryKey]);
+  const sales2019: number[] = data.map((item) => item[sales2019Key].toFixed(0));
+  const sales2021: number[] = data.map((item) => item[sales2021Key].toFixed(0));
+
+  console.log(sales2019);
+
   const labelRight = {
     position: "right",
   } as const;
@@ -16,16 +29,14 @@ function Charts() {
       {
         left: "12%",
         right: "5%",
-        width: "35%",
+        width: "50%",
         top: "2%",
-        bottom: "20%"
       },
       {
         top: "2%",
-        left: "55%",
+        left: "65%",
         rigth: "-20%",
-        width: "40%",
-        bottom: "20%"
+        width: "30%",
       },
     ],
     xAxis: [
@@ -34,7 +45,7 @@ function Charts() {
         axisLine: { show: true },
         axisLabel: {
           formatter: function (value: number) {
-            return value.toFixed(1) + "%";
+            return value;
           },
         },
         gridIndex: 0,
@@ -64,17 +75,7 @@ function Charts() {
     yAxis: [
       {
         type: "category",
-        data: [
-          "Product",
-          "Office of CEO",
-          "Marketing",
-          "Customer Support",
-          "Finance",
-          "HR",
-          "IT",
-          "Sales",
-          "Operations",
-        ],
+        data: subcategories,
         gridIndex: 0,
       },
       {
@@ -88,32 +89,32 @@ function Charts() {
     ],
     series: [
       {
-        name: "Blue",
+        name: "Sales 2019",
         type: "bar",
-        data: [9.37, 11, 11.9, 12.3, 12.5, 12.9, 13.7, 15.3, 16.6],
+        data: sales2019,
         itemStyle: {
           color: "#4e73df",
         },
         label: {
           show: true,
           position: "outside",
-          formatter: "{c}%",
+          formatter: "{c}",
           color: "#4e73df",
         },
         barMaxWidth: 25,
         barCategoryGap: "20%",
       },
       {
-        name: "Red",
+        name: "Sales 2021",
         type: "bar",
-        data: [8.59, 0, 10.9, 12, 9.27, 20.8, 11.6, 18.1, 16.6],
+        data: sales2021,
         itemStyle: {
           color: "#e74a3b",
         },
         label: {
           show: true,
           position: "outside",
-          formatter: "{c}%",
+          formatter: "{c}",
           color: "#e74a3b",
         },
         barMaxWidth: 25,
