@@ -13,12 +13,6 @@ const subcategories: string[] = data.map((item) => item[subcategoryKey]);
 const sales2019: number[] = data.map((item) => item[sales2019Key].toFixed(0));
 const sales2021: number[] = data.map((item) => item[sales2021Key].toFixed(0));
 
-// const differenceData = sales2021.map((value2019, index) => {
-//   const value2021 = sales2019[index];
-//   const difference = value2019 - value2021;
-//   return { value: difference, label: difference < 0 ? labelRight : null };
-// });
-
 const WaterfallOption = {
   tooltip: {
     trigger: "axis",
@@ -27,7 +21,7 @@ const WaterfallOption = {
     },
   },
   grid: {
-    left: "7%",
+    left: "17%",
     right: "7%",
     bottom: "5%",
     containLabel: true,
@@ -48,6 +42,47 @@ const WaterfallOption = {
   yAxis: {
     type: "value",
   },
+  graphic: [
+    {
+      type: "group",
+      left: "0%",
+      top: "bottom",
+      children: [
+        {
+          type: "rect",
+          z: 100,
+          left: "center",
+          top: "middle",
+          shape: {
+            width: 180,
+            height: 60,
+          },
+          style: {
+            fill: "#fff",
+            stroke: "#555",
+            lineWidth: 1,
+            shadowBlur: 8,
+            shadowOffsetX: 3,
+            shadowOffsetY: 3,
+            shadowColor: "rgba(0,0,0,0.2)",
+          },
+        },
+        {
+          type: "text",
+          z: 100,
+          left: "center",
+          top: "middle",
+          style: {
+            fill: "#333",
+            width: 220,
+            overflow: "break",
+            text: "Starting Headcount",
+            font: "14px Microsoft YaHei",
+          },
+        },
+      ],
+    },
+  ],
   //static data
   // series: [
   //   {
