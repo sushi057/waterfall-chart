@@ -9,9 +9,15 @@ const subcategoryKey = keys.find((key) => key.includes("subcategory"));
 const sales2019Key = keys.find((key) => key.includes("d__2019sale"));
 const sales2021Key = keys.find((key) => key.includes("d__2021sale"));
 
-const subcategories = data.map((item) => item[subcategoryKey]);
+const subcategories: string[] = data.map((item) => item[subcategoryKey]);
 const sales2019: number[] = data.map((item) => item[sales2019Key].toFixed(0));
 const sales2021: number[] = data.map((item) => item[sales2021Key].toFixed(0));
+
+// const differenceData = sales2021.map((value2019, index) => {
+//   const value2021 = sales2019[index];
+//   const difference = value2019 - value2021;
+//   return { value: difference, label: difference < 0 ? labelRight : null };
+// });
 
 const WaterfallOption = {
   tooltip: {
@@ -29,94 +35,139 @@ const WaterfallOption = {
   xAxis: {
     type: "category",
     splitLine: false,
-    data: [
-      "Expansion",
-      "Replacement",
-      "Involuntary Turnover",
-      "Voluntary Turnover",
-      "Discrepancies",
-      "Net Change",
-    ],
+    // data: [
+    //   "Expansion",
+    //   "Replacement",
+    //   "Involuntary Turnover",
+    //   "Voluntary Turnover",
+    //   "Discrepancies",
+    //   "Net Change",
+    // ],
+    data: subcategories,
   },
   yAxis: {
     type: "value",
   },
+  //static data
+  // series: [
+  //   {
+  //     name: "Placeholder",
+  //     type: "bar",
+  //     stack: "total",
+  //     silent: "true",
+  //     itemStyle: {
+  //       borderColor: "transparent",
+  //       color: "transparent",
+  //     },
+  //     data: [0, 379, 589, 357, 364, 0],
+  //     barCategoryGap: "10%",
+  //   },
+  //   {
+  //     name: "Scans",
+  //     type: "bar",
+  //     stack: "total",
+  //     label: {
+  //       show: true,
+  //       position: "top",
+  //       color: "#9bebb4",
+  //       formatter: "+{c}",
+  //       fontWeight: "bold",
+  //     },
+  //     itemStyle: {
+  //       color: "rgba(0, 255, 0, 0.5)", // Transparent green color
+  //     },
+  //     data: [379, 326, "-", "-", "-", "-"],
+  //   },
+  //   {
+  //     name: "Exits",
+  //     type: "bar",
+  //     stack: "total",
+  //     label: {
+  //       show: true,
+  //       position: "bottom",
+  //       color: "#fdacaa",
+  //       formatter: "-{c}",
+  //       fontWeight: "bold",
+  //     },
+  //     itemStyle: {
+  //       color: "rgba(255, 0, 0, 0.5)", // Transparent red color
+  //     },
+  //     data: ["-", "-", 118, 232, "-", "-"],
+  //   },
+  //   {
+  //     name: "Discrepancies",
+  //     type: "bar",
+  //     stack: "total",
+  //     label: {
+  //       show: true,
+  //       position: "top",
+  //       color: "#cfd2d8",
+  //       formatter: "+{c}",
+  //       fontWeight: "bold",
+  //     },
+  //     itemStyle: {
+  //       color: "#cfd2d8",
+  //     },
+  //     data: ["-", "-", "-", "-", 7, "-"],
+  //   },
+  //   {
+  //     name: "Net Change",
+  //     type: "bar",
+  //     stack: "total",
+  //     label: {
+  //       show: true,
+  //       position: "top",
+  //       color: "#bedcfe",
+  //       formatter: "+{c}",
+  //       fontWeight: "bold",
+  //     },
+  //     itemStyle: {
+  //       color: "rgba(0, 90, 255, 0.5)", // Transparent blue color
+  //     },
+  //     data: ["-", "-", "-", "-", "", 362],
+  //   },
+  // ],
   series: [
     {
-      name: "Placeholder",
+      name: "Sales2019",
       type: "bar",
-      stack: "total",
-      silent: "true",
+      stack: "Total",
       itemStyle: {
         borderColor: "transparent",
         color: "transparent",
       },
-      data: [0, 379, 589, 357, 364, 0],
-      barCategoryGap: "10%",
+      emphasis: {
+        borderColor: "transparent",
+        color: "transparent",
+      },
+      data: sales2019,
     },
     {
-      name: "Scans",
+      name: "Sales2021",
       type: "bar",
-      stack: "total",
+      stack: "Total",
       label: {
         show: true,
         position: "top",
-        color: "#9bebb4",
-        formatter: "+{c}",
-        fontWeight: "bold",
+        formatter: function (params) {
+          const salesDiff = params.data - sales2019[params.dataIndex];
+          return (salesDiff > 0 ? "+" : "") + salesDiff;
+        },
       },
       itemStyle: {
-        color: "rgba(0, 255, 0, 0.5)", // Transparent green color
+        color: function (params) {
+          const salesDiff = params.data - sales2019[params.dataIndex];
+          // Choose colors based on salesDiff
+          if (salesDiff > 0) {
+            return "#00ff00"; // Green for positive difference
+          } else if (salesDiff < 0) {
+            return "#ff0000"; // Red for negative difference
+          } else {
+            return "#888888"; // Gray for no difference
+          }
+        },
       },
-      data: [379, 326, "-", "-", "-", "-"],
-    },
-    {
-      name: "Exits",
-      type: "bar",
-      stack: "total",
-      label: {
-        show: true,
-        position: "bottom",
-        color: "#fdacaa",
-        formatter: "-{c}",
-        fontWeight: "bold",
-      },
-      itemStyle: {
-        color: "rgba(255, 0, 0, 0.5)", // Transparent red color
-      },
-      data: ["-", "-", 118, 232, "-", "-"],
-    },
-    {
-      name: "Discrepancies",
-      type: "bar",
-      stack: "total",
-      label: {
-        show: true,
-        position: "top",
-        color: "#cfd2d8",
-        formatter: "+{c}",
-        fontWeight: "bold",
-      },
-      itemStyle: {
-        color: "#cfd2d8",
-      },
-      data: ["-", "-", "-", "-", 7, "-"],
-    },
-    {
-      name: "Net Change",
-      type: "bar",
-      stack: "total",
-      label: {
-        show: true,
-        position: "top",
-        color: "#bedcfe",
-        formatter: "+{c}",
-        fontWeight: "bold",
-      },
-      itemStyle: {
-        color: "rgba(0, 90, 255, 0.5)", // Transparent blue color
-      },
-      data: ["-", "-", "-", "-", "", 362],
+      data: sales2021,
     },
   ],
 };
