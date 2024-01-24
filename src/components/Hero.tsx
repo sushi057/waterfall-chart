@@ -192,7 +192,6 @@ const WaterfallOption = {
       itemStyle: {
         color: function (params) {
           const salesDiff = params.data - sales2019[params.dataIndex];
-          // Choose colors based on salesDiff
           if (salesDiff > 0) {
             return "#00ff00"; // Green for positive difference
           } else if (salesDiff < 0) {
