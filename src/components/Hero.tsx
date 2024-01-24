@@ -1,6 +1,17 @@
 import { faCalendarDay, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ReactECharts from "echarts-for-react";
+import data from "../data/data.json";
+
+const keys = Object.keys(data[0]);
+
+const subcategoryKey = keys.find((key) => key.includes("subcategory"));
+const sales2019Key = keys.find((key) => key.includes("d__2019sale"));
+const sales2021Key = keys.find((key) => key.includes("d__2021sale"));
+
+const subcategories = data.map((item) => item[subcategoryKey]);
+const sales2019: number[] = data.map((item) => item[sales2019Key].toFixed(0));
+const sales2021: number[] = data.map((item) => item[sales2021Key].toFixed(0));
 
 const WaterfallOption = {
   tooltip: {
@@ -8,10 +19,6 @@ const WaterfallOption = {
     axisPointer: {
       type: "shadow",
     },
-    // formatter: function (params: any) {
-    //   const tar = params[1];
-    //   return tar.name + "<br />" + tar.seriesName + " : " + tar.value;
-    // },
   },
   grid: {
     left: "7%",
@@ -44,49 +51,7 @@ const WaterfallOption = {
         borderColor: "transparent",
         color: "transparent",
       },
-      data: [
-        {
-          value: 0,
-          label: {
-            show: true,
-            position: "left",
-            formatter: [`{term|4.85K}`, `Starting`, `Headcount`].join("\n"),
-            color: "#808080",
-            align: "center",
-            padding: [0, 120, 2, 2],
-            rich: {
-              term: {
-                color: "#000",
-                fontSize: 14,
-                fontWeight: "bold",
-              },
-            },
-          },
-        },
-        379,
-        589,
-        357,
-        364,
-        {
-          value: 0,
-          label: {
-            show: true,
-            position: "right",
-            // align: "top",
-            // verticalAlign: "top",
-            padding: [5, 5, 380, 5],
-            formatter: ["{term|5.23K}", "Finding", "Headcount"].join("\n"),
-            color: "#808080",
-            rich: {
-              term: {
-                color: "#000",
-                fontSize: 14,
-                fontWeight: "bold",
-              },
-            },
-          },
-        },
-      ],
+      data: [0, 379, 589, 357, 364, 0],
       barCategoryGap: "10%",
     },
     {
